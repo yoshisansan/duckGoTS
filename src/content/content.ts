@@ -72,11 +72,18 @@ const addDomOfGoogle = ( response: duckGoData ) => {
     const parent: HTMLInputElement = <HTMLInputElement>deleteDom.parentNode;
     parent.removeChild(deleteDom);
   }
+
+  const google: HTMLAnchorElement[] = Array.from(document.querySelectorAll("#rso > div > div > div.r > a:nth-child(1)"));
+  const googleURLs: string[] = google.map( (item) => item.href );
+
   const duckGo: string = response.results;
   const duckGoDom: duckGoResults[] = JSON.parse(duckGo);
   const responseItem = ( result: duckGoResults ) => {
+    const dupli = googleURLs.filter(url => url === result.url);
+    const dupliClass = dupli[0] ? "dupli-color" : "";
+
     return `
-    <div id="dupliChecker" class="ducks">
+    <div id="dupliChecker" class="ducks ${dupliClass}">
       <div class="ducks__padding">
         <div class="ducks__title"><a href="${result.url}">${result.title}</a></div>
         <div class="ducks__url"><a href="${result.url}">${decodeURI(result.url)}</a></div>
@@ -134,6 +141,9 @@ const cssDucks = `
       opacity: 1;
     }
   }
+  .dupli-color {
+    background-color: #f2f2f2;
+  }
   .duckduck:hover {
     opacity: 1;
   }
@@ -143,7 +153,6 @@ const cssDucks = `
     line-height: 25.89px;
   }
   .ducks {
-    // background-color: #f7f7f7;
   }
   .ducks:first-child {
     border-radius: 8px 8px 0 0;
