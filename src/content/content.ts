@@ -20,7 +20,7 @@ chrome.storage.local.get(null, (item) => {
 });
 
 const keywordCheck = (url: any) => {
-  if(!url.match(/&start=0/)) return;
+  if( url.match(/&start=/) && !url.match(/&start=0/) ) return;
   const target: any = url.match(/q=[^&]*/)[0].replace(/^q=/, ""),
     keywords: any = target.replace(/\+/g, " ");
   console.log(keywords);
