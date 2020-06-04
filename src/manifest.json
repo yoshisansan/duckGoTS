@@ -1,0 +1,32 @@
+{
+  "name": "DuckGooGo",
+  "version": "1.0.0",
+  "manifest_version" : 2,
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "icons": {
+    "16": "images/DuckGooGo16.png",
+    "128": "images/DuckGooGo128.png"
+  },
+  "browser_action": {
+    "default_popup": "pages/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search?*"
+      ],
+      "all_frames": true,
+      "js": [
+        "content/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  }
+}

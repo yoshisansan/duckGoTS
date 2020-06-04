@@ -5,9 +5,9 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    'pages/js/popup': './src/pages/js/popup.ts',
-    'content/content': './src/content/content.ts',
-    'background/background': './src/scripts/background.ts'
+    'pages/js/popup': `${__dirname}/src/pages/js/popup.ts`,
+    'content/content': `${__dirname}/src/content/content.ts`,
+    'scripts/background': `${__dirname}/src/scripts/background.ts`
   },
   output: {
     filename: '[name].js',
@@ -33,7 +33,9 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'src/manifest.json', to: './manifest.json' },
-        { from: 'src/pages/index.html', to: './pages/index.html' },
+        { from: 'src/pages/style', to: './pages/style' },
+        { from: 'src/images', to: './images' },
+        { from: 'src/pages/popup.html', to: './pages/popup.html' },
       ],
     }),
   ],
