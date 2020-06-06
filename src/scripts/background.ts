@@ -23,8 +23,8 @@ async function connectServer( keywords: string, sender: any ) {
         waitFlag = true;
     }
   });
-  xhr.open("POST", "http://localhost:3000/duck");
-  // xhr.open("POST", "https://childish-great-tray.glitch.me/duck/");
+  // xhr.open("POST", "http://localhost:3000/duck");
+  xhr.open("POST", "https://childish-great-tray.glitch.me/duck/");
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(data);
 }

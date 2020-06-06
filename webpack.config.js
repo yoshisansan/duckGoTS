@@ -28,8 +28,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // publicフォルダに、manifest.jsonやicon.pngを置いたので、
-    // それが一緒に./distフォルダに吐き出されるようにする
     new CopyPlugin({
       patterns: [
         { from: 'src/manifest.json', to: './manifest.json' },
