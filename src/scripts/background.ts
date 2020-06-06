@@ -24,6 +24,7 @@ async function connectServer( keywords: string, sender: any ) {
     }
   });
   xhr.open("POST", "http://localhost:3000/duck");
+  // xhr.open("POST", "https://childish-great-tray.glitch.me/duck/");
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(data);
 }
